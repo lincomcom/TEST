@@ -1,0 +1,54 @@
+
+{
+    "src": {
+      "credential": {
+        "protocol": "http",
+        "hostname": "10.20.91.163",
+        "port": "8080",
+        "username": "admin",
+        "password": "qq123456"
+      },
+      "alink": "10.20.91.167",
+      "storage": "shared://HA/VM_test",
+      "failover_policies": {
+        "failover_ups": true,
+        "failover_psu": false,
+        "failover_sys_fan": false,
+        "failover_avg_cpu_load": 80,
+        "failover_avg_mem_load": 0,
+        "failover_disk_health": true,
+        "failover_virtual_switch": true
+      },
+      "blinks": [
+        {
+          "vswitch": "qvs0"
+        }
+      ]
+    },
+    "dst": {
+      "credential": {
+        "protocol": "http",
+        "hostname": "10.20.91.162",
+        "port": "8080",
+        "username": "admin",
+        "password": "qq123456"
+      },
+      "alink": "10.20.91.166",
+      "storage": "shared://HA",
+      "failover_policies": {
+        "failover_ups": true,
+        "failover_psu": false,
+        "failover_sys_fan": false,
+        "failover_avg_cpu_load": 80,
+        "failover_avg_mem_load": 0,
+        "failover_disk_health": true,
+        "failover_virtual_switch": true
+      },
+      "blinks": [
+        {
+          "vswitch": "qvs0"
+        }
+      ]
+    }
+}
+
