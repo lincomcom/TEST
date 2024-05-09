@@ -839,6 +839,27 @@ def test_QuorumWriter():
     quo = QuorumWriter()
     quo.write_quorum()
    
+import subprocess
+
+def test_ping(ip_address):
+    """
+    Test if the given IP address is connected by ping.
+    
+    Args:
+    - ip_address: A string representing the IP address to test.
+    
+    Returns:
+    - True if the IP address is reachable, False otherwise.
+    """
+    # Use subprocess to run the ping command
+    result = subprocess.run(['ping', '-c', '1', ip_address], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    print(f"{result=}")
+    # Check the return code to determine if the ping was successful
+    if result.returncode == 0:
+        return True
+    else:
+        return False
+
 TASK_MIGRATE_CHECK_SPACE_FAILED = 3808
 def main():
     
@@ -879,7 +900,12 @@ def main():
     # test_multiple_try_exceptions()
     # test_parse_data_from_detail()
     
-    test_QuorumWriter()
+    # test_QuorumWriter()
+    
+    # Example usage:
+    ip_to_test = '8.8.8.8'  # IP address to test
+    is_connected = test_ping(ip_to_test)
+    print(f"Is {ip_to_test} connected? {is_connected}")
   
     
     # test_os_path_join()
